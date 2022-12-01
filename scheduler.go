@@ -15,7 +15,6 @@ const (
 )
 
 type Handler struct {
-	Log string
 	Job []Job
 }
 
@@ -28,9 +27,7 @@ type Job struct {
 }
 
 func New(log string) *Handler {
-	return &Handler{
-		Log: log,
-	}
+	return &Handler{}
 }
 
 func (h *Handler) AddJob(job Job) {
