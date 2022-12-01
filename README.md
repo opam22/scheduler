@@ -12,7 +12,7 @@ Supported unit:
 # Example
 ```
 func main() {
-	sch := scheduler.New("later")
+	sch := scheduler.New()
 
 	// every 5 seconds
 	sch.AddJob(scheduler.Job{
