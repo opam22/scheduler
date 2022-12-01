@@ -26,7 +26,7 @@ type Job struct {
 	RegisteredAt time.Time
 }
 
-func New(log string) *Handler {
+func New() *Handler {
 	return &Handler{}
 }
 
