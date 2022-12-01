@@ -1,3 +1,3 @@
-module github.com/opam22/scheduler v0.1.0
+module github.com/opam22/scheduler
 
 go 1.18
