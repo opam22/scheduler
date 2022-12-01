@@ -14,6 +14,7 @@ Supported unit:
 func main() {
 	sch := scheduler.New("later")
 
+	// every 5 seconds
 	sch.AddJob(scheduler.Job{
 		Name:  "Download report",
 		Every: 5,
@@ -23,6 +24,7 @@ func main() {
 		},
 	})
 
+    // every 2 minutes
 	sch.AddJob(scheduler.Job{
 		Name:  "Upload report",
 		Every: 2,
