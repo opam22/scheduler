@@ -24,7 +24,7 @@ func main() {
 		},
 	})
 
-    // every 2 minutes
+        // every 2 minutes
 	sch.AddJob(scheduler.Job{
 		Name:  "Upload report",
 		Every: 2,
