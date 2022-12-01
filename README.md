@@ -7,7 +7,7 @@ Supported unit:
 3. Hours
 
 # Installation
-```go get github.com/opam22/scheduler```
+```go get -u github.com/opam22/scheduler```
 
 # Example
 ```
