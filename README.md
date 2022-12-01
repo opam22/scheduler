@@ -1,4 +1,4 @@
-# scheduler
+# Scheduler
 Scheduler on application level for Go
 
 Supported unit:
@@ -6,7 +6,10 @@ Supported unit:
 2. Minutes
 3. Hours
 
-Example:
+# Installation
+```go get github.com/opam22/scheduler```
+
+# Example
 ```
 func main() {
 	sch := scheduler.New("later")
