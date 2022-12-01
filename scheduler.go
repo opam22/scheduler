@@ -15,7 +15,7 @@ const (
 )
 
 type Handler struct {
-	Job []Job
+	Jobs []Job
 }
 
 type Job struct {
@@ -39,12 +39,12 @@ func (h *Handler) AddJob(job Job) {
 		RegisteredAt: time.Now(),
 	}
 
-	h.Job = append(h.Job, j)
+	h.Jobs = append(h.Jobs, j)
 }
 
 func (h *Handler) Start() {
 	for range time.Tick(time.Second * 1) {
-		for _, j := range h.Job {
+		for _, j := range h.Jobs {
 			h.Run(j)
 		}
 	}
