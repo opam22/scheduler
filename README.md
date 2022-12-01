@@ -7,7 +7,7 @@ Supported unit:
 3. Hours
 
 # Installation
-```go get github.com/opam22/scheduler```
+```go get -u github.com/opam22/scheduler```
 
 # Example
 ```
@@ -24,7 +24,7 @@ func main() {
 		},
 	})
 
-    // every 2 minutes
+        // every 2 minutes
 	sch.AddJob(scheduler.Job{
 		Name:  "Upload report",
 		Every: 2,
