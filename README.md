@@ -5,6 +5,7 @@ Supported unit:
 1. Seconds
 2. Minutes
 3. Hours
+4. Days
 
 # Installation
 ```go get -u github.com/opam22/scheduler```
@@ -14,7 +15,7 @@ Supported unit:
 func main() {
 	sch := scheduler.New()
 
-	// every 5 seconds
+    // every 5 seconds
 	sch.AddJob(scheduler.Job{
 		Name:  "Download report",
 		Every: 5,
@@ -24,7 +25,7 @@ func main() {
 		},
 	})
 
-        // every 2 minutes
+    // every 2 minutes
 	sch.AddJob(scheduler.Job{
 		Name:  "Upload report",
 		Every: 2,
