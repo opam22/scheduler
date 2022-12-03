@@ -149,14 +149,14 @@ func (s *Scheduler) RemoveJob(id int) error {
 // Start() will kick off the scheduler and proceed all registered job
 func (s *Scheduler) Start() {
 	s.logger.Info("scheduler started")
-
-	wg := sync.WaitGroup{}
-	for range time.Tick(time.Second * 1) {
+	ticker := time.NewTicker(1 * time.Second)
+	for ; true; <-ticker.C {
 		if len(s.Jobs) == 0 {
 			// no job, skip
 			continue
 		}
 
+		wg := sync.WaitGroup{}
 		for _, job := range s.Jobs {
 			wg.Add(1)
 			job := job
@@ -165,8 +165,8 @@ func (s *Scheduler) Start() {
 				s.run(job)
 			}()
 		}
+		wg.Wait()
 	}
-	wg.Wait()
 }
 
 // run() will run the job if its match the schedule
@@ -181,11 +181,7 @@ func shouldRun(job Job) bool {
 	currentTime := time.Now().Local()
 	delta := currentTime.Sub(job.RegisteredAt)
 
-	if int32(math.Ceil(delta.Seconds()))%job.Every == 0 {
-		return true
-	}
-
-	return false
+	return int32(math.Ceil(delta.Seconds()))%job.Every == 0
 }
 
 // Close() will stop the scheduler
